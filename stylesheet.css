@@ -1,0 +1,56 @@
+body {
+	background-image: url('http://i393.photobucket.com/albums/pp19/Althecoding1/backgroundblur_zpsmnka2uwh.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#title {
+	font-family: formula1;
+	position: relative;
+	font-weight: bolder;
+}
+
+#question {
+	font-size: 1.2em;
+	height: 12em;
+	width: 16em;
+	position: relative;
+	left: 27%;
+	top: 10em;
+	text-shadow: 2px 2px #bcbdbd;
+}
+
+h3 {
+	position:relative;
+	padding: 1em;
+}
+
+#content {
+	font-weight:bold;
+	position: relative;
+	text-align: center;
+}
+
+#answers {
+	text-shadow: 2px 2px #bcbdbd;
+	position:relative;
+	bottom: 2em;
+	left: 50em;
+	width: 50%;
+}
+
+#questionImgs {
+	
+	position: relative;
+	
+}
+ h1 {
+ 	text-shadow: 2px 2px #bcbdbd;
+ }
+
+
+
+@font-face {
+	font-family: formula1;
+	src: url(concbv2.ttf);
+}

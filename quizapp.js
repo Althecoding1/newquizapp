@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   var F1quiz = {
-    title: "Formula One Racing",
+    title: "Formula One Racing Quiz",
     questions: [{
       question: "How many different drivers currently make up the 2015 grid?",
       answers: [16, 24, 19, 21],
@@ -26,35 +26,21 @@ $(document).ready(function () {
       }]
     }
 
-      /* Examples of how to access the quiz object
-
-      Get the question:
-      quiz.question[i].question
-
-      Get the correct answer:
-      quiz.question[i].answers[quiz.questions[i].correct]
-      */
-
-
   function runQuiz(quiz) {
-    // Display title of quiz
     $('#title').text(quiz.title);
 
     // Global Variables
     var score = 0;
     var currentQuestion = 0;
+    var finalLength = quiz.questions.length -1;
     $('#submit').append("<input type='submit' name='mysubmit' value='Next Question'>");
     $('#submit').click(function () {
       showScore();
-      currentQuestion++;
       updateQuestion();
     })
 
     function displayQuestion(question) {
-      // Display question texts
       $('#question').append('<h3>' + question.question + '</h3>');
-
-      // Build answers with radio buttons and display answers block
       var answerChoices = '';
       for (var i = 0; i < question.answers.length; i++) {
         answerChoices += "<input type='radio' name='answers' value=" + i + ">";
@@ -62,22 +48,28 @@ $(document).ready(function () {
 
       }
       $('#answers').append('<h4>' + answerChoices + '<h4>');
-          
+      console.log(answerChoices);    
     }
   displayQuestion(quiz.questions[currentQuestion]);
         
     function updateQuestion() {
-      if (currentQuestion < quiz.questions.length) {
+      if (currentQuestion < finalLength ) {
         $('h3').remove();
         $('h4').remove();
+        currentQuestion++;
         displayQuestion(quiz.questions[currentQuestion]);
       }
-      else if (currentQuestion >= quiz.questions.length && score < 3){
-        $('#scoreCard').append('<h4>You got ' + score +' correct, you may want to give it another shot!<h4>');
-        $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!'onclick='window.location.reload()'>");
+      else if (currentQuestion == finalLength && score < 3){
+        $('#scoreCard').append('<h1>You got ' + score +' correct, you may want to give it another shot!<h1>');
+        $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!'onclick='window.location.reload()'>");   
       }
-      else {
-        $('#scoreCard').append('<h4>Great job! You got ' + score + ' correct, Play again!<h4>');
+      else if (currentQuestion == finalLength && score <= 4){
+        $('#scoreCard').append('<h1>Great job! You got ' + score + ' correct, Play again!<h1>');
+        $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!' onclick='window.location.reload()'>");
+      }
+      else if(currentQuestion == finalLength && score <= 5) {
+        $('#allCorrect').append('<img src="http://i393.photobucket.com/albums/pp19/Althecoding1/trophy1_zpsnnp3zpxd.png">');
+        $('#allCorrect').append('<h1>Congratulations, you correctly answered all the questions!<h1>')
         $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!' onclick='window.location.reload()'>");
       }
     }
