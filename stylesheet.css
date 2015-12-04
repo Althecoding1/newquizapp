@@ -12,30 +12,31 @@ body {
 
 #question {
 	font-size: 1.2em;
-	height: 12em;
+	height: 8em;
 	width: 16em;
 	position: relative;
 	left: 27%;
-	top: 10em;
+	top: 7em;
 	text-shadow: 2px 2px #bcbdbd;
 }
 
 h3 {
 	position:relative;
-	padding: 1em;
+	
 }
 
 #content {
 	font-weight:bold;
 	position: relative;
 	text-align: center;
+
 }
 
 #answers {
 	text-shadow: 2px 2px #bcbdbd;
 	position:relative;
 	bottom: 2em;
-	left: 50em;
+	left: 40%;
 	width: 50%;
 }
 
@@ -47,7 +48,18 @@ h3 {
  h1 {
  	text-shadow: 2px 2px #bcbdbd;
  }
-
+ #submit {
+ 	position: relative;
+ 	left:47.2%;
+ 	top: 8%;
+ 	width: 5%;
+ }
+#allCorrect {
+	font-family: formula1;
+}
+#scoreCard {
+	font-family: formula1;
+}
 
 
 @font-face {
