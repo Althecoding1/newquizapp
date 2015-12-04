@@ -30,6 +30,13 @@ $(document).ready(function () {
     $('#title').text(quiz.title);
 
     // Global Variables
+    function removeQandA() {
+        $('h2').remove();
+        $('h3').remove();
+        $('h4').remove();
+        $('#submit').remove(); 
+    }
+
     var score = 0;
     var currentQuestion = 0;
     var finalLength = quiz.questions.length -1;
@@ -63,28 +70,19 @@ $(document).ready(function () {
         $('#scoreCard').append('<img src="http://i393.photobucket.com/albums/pp19/Althecoding1/trophy1bronze_zpsubbfhtsh.png">')
         $('#scoreCard').append('<h1>You got ' + score +' correct, you may want to give it another shot!<h1>');
         $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!'onclick='window.location.reload()'>");
-        $('h2').remove();
-        $('h3').remove();
-        $('h4').remove();
-        $('#submit').remove(); 
+        removeQandA();
       }
       else if (currentQuestion == finalLength && score <= 4){
         $('#scoreCard').append('<img src="http://i393.photobucket.com/albums/pp19/Althecoding1/trophy1silver_zpshskwss3j.png">')
         $('#scoreCard').append('<h1>Great job! You got ' + score + ' correct, Play again!<h1>');
         $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!' onclick='window.location.reload()'>");
-        $('h2').remove();
-        $('h3').remove();
-        $('h4').remove();
-        $('#submit').remove(); 
+        removeQandA();
       }
       else if(currentQuestion == finalLength && score <= 5) {
         $('#allCorrect').append('<img src="http://i393.photobucket.com/albums/pp19/Althecoding1/trophy1_zpsnnp3zpxd.png">');
         $('#allCorrect').append('<h1>Congratulations, you correctly answered all the questions!<h1>')
         $('#scoreCard').append("<input type='submit' name='newgame' value='Play Again!' onclick='window.location.reload()'>");
-        $('h2').remove();
-        $('h3').remove();
-        $('h4').remove();
-        $('#submit').remove(); 
+        removeQandA();
       }
   }
 
