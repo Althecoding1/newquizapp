@@ -34,13 +34,15 @@ $(document).ready(function () {
         $('h2').remove();
         $('h3').remove();
         $('h4').remove();
-        $('#submit').remove(); 
+        $('#submit').remove();
+        $('#question').remove();
+        $('.questionBox').remove(); 
     }
 
     var score = 0;
     var currentQuestion = 0;
     var finalLength = quiz.questions.length -1;
-    $('#submit').append("<input type='submit' name='mysubmit' value='Next Question'>");
+    $('#submit').append("<name='mysubmit'>Next Question</button>");
     $('#submit').click(function () {
       showScore();
       updateQuestion();
@@ -50,20 +52,21 @@ $(document).ready(function () {
       $('#question').append('<h3>' + question.question + '</h3>');
       var answerChoices = '';
       for (var i = 0; i < question.answers.length; i++) {
-        answerChoices += "<input type='radio' name='answers' value=" + i + ">";
+        answerChoices += "<input type='radio' id='questions' name='answers' value=" + i + ">";
         answerChoices += question.answers[i] + '<br>';
-
       }
       $('#answers').append('<h4>' + answerChoices + '<h4>');
       console.log(answerChoices);    
     }
   displayQuestion(quiz.questions[currentQuestion]);
+ 
         
     function updateQuestion() {
       if (currentQuestion < finalLength ) {
         $('h3').remove();
         $('h4').remove();
         currentQuestion++;
+
         displayQuestion(quiz.questions[currentQuestion]);
       }
       else if (currentQuestion == finalLength && score <= 2){
@@ -92,11 +95,14 @@ $(document).ready(function () {
       $('h2').remove();
       if (theAnswer == arraycorrectA){
       score++;
+      $('#totalScore').append('<h2> ' + score + ' out of ' + quiz.questions.length + ' <h2>');
       $('#qCorrect').append('<h2>' + 'Correct!' + '<h2>');
       }
       else {
+      $('#totalScore').append('<h2> ' + score + ' out of ' + quiz.questions.length + ' <h2>');
       $('#qCorrect').append('<h2>' + 'Incorrect!' + '<h2>');
       }
+
     }
   }
 // Start the quiz
